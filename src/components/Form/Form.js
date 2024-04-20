@@ -23,6 +23,7 @@ const Form = ({ inputs, onSubmit }) => {
               placeholder={input.placeholder || ""}
               onChange={handleChange}
               required={input.required}
+              value={input.value}
             />
           </>
         );
