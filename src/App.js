@@ -40,6 +40,7 @@ function App() {
 
       if (res.status === 200) {
         // Set state data
+        setUsersData(res.data);
         console.log(res.data);
       }
     } catch (error) {
