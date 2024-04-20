@@ -39,7 +39,7 @@ const Modal = ({ onClose, data, closeModal }) => {
       placeholder: "e.g John",
       label: "Enter Firstname",
       required: true,
-      value: data.firstname || "",
+      value: data ? data.firstname : "",
     },
     {
       name: "lastname",
@@ -47,7 +47,7 @@ const Modal = ({ onClose, data, closeModal }) => {
       placeholder: "Lastname",
       label: "Enter Lastname",
       required: true,
-      value: data.lastname || "",
+      value: data ? data.lastname : "",
     },
     {
       name: "email",
@@ -55,7 +55,7 @@ const Modal = ({ onClose, data, closeModal }) => {
       placeholder: "e.g example@demo.com",
       label: "Enter email address",
       required: true,
-      value: data.email || "",
+      value: data ? data.email : "",
     },
     {
       name: "department",
@@ -63,7 +63,7 @@ const Modal = ({ onClose, data, closeModal }) => {
       placeholder: "e.g IT",
       label: "Enter your department.",
       required: true,
-      value: data.department || "",
+      value: data ? data.department : "",
     },
   ];
 
