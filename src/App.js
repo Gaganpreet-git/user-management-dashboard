@@ -3,10 +3,17 @@ import "./App.css";
 import Table from "./components/Table/Table";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Button from "./components/Button/Button";
+import Form from "./components/Form/Form";
+import Modal from "./components/Modal/Modal";
 
 function App() {
   const [usersData, setUsersData] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
   const headings = [
     "Id",
     "Firstname",
@@ -54,6 +61,8 @@ function App() {
   return (
     <div className="App">
       <Table headings={headings} rows={rows} />
+      <Button>Add User</Button>
+      <Modal></Modal>
     </div>
   );
 }

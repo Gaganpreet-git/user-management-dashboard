@@ -1,0 +1,25 @@
+.form {
+    width: 30rem;
+    margin: 0 auto;
+}
+
+.form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.4rem;
+}
+
+.form input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0.5rem rgba(0, 123, 255, 0.5);
+}
