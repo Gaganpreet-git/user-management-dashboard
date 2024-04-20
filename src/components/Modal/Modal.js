@@ -1,7 +1,7 @@
 import Form from "../Form/Form";
 import "./Modal.css";
 
-const Modal = () => {
+const Modal = ({ onClose }) => {
   const inputs = [
     {
       name: "firstname",
@@ -40,7 +40,9 @@ const Modal = () => {
           console.log(data);
         }}
       ></Form>
-      <div className="close-btn">X</div>
+      <div className="close-btn" onClick={onClose}>
+        X
+      </div>
     </div>
   );
 };
