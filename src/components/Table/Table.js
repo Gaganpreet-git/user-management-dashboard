@@ -33,7 +33,13 @@ const Table = ({ headings, rows }) => {
             <td>{row.email}</td>
             <td>{row.department}</td>
             <td>Edit</td>
-            <td>Delete</td>
+            <td
+              onClick={() => {
+                deleteUser(row.id);
+              }}
+            >
+              Delete
+            </td>
           </tr>
         );
       })}
