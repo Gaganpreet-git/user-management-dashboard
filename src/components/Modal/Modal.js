@@ -54,6 +54,8 @@ const Modal = ({ onClose }) => {
       <Form
         inputs={inputs}
         onSubmit={(data) => {
+          addUser(data);
+
           console.log(data);
         }}
       ></Form>
