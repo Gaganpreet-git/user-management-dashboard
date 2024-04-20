@@ -1,7 +1,23 @@
+import axios from "axios";
 import Form from "../Form/Form";
 import "./Modal.css";
 
 const Modal = ({ onClose }) => {
+  const API_endpoint = " https://jsonplaceholder.typicode.com";
+
+  const addUser = async (userData) => {
+    console.log(userData);
+    try {
+      const res = await axios.post(`${API_endpoint}/users`, userData);
+      console.log(res);
+      if (res.status === 201) {
+        alert("User added successfully");
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   const inputs = [
     {
       name: "firstname",
@@ -32,6 +48,7 @@ const Modal = ({ onClose }) => {
       required: true,
     },
   ];
+
   return (
     <div className="modal">
       <Form
