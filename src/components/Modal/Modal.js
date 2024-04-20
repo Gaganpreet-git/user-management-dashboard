@@ -2,7 +2,7 @@ import axios from "axios";
 import Form from "../Form/Form";
 import "./Modal.css";
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, data }) => {
   const API_endpoint = " https://jsonplaceholder.typicode.com";
 
   const addUser = async (userData) => {
@@ -25,6 +25,7 @@ const Modal = ({ onClose }) => {
       placeholder: "e.g John",
       label: "Enter Firstname",
       required: true,
+      value: data.firstname || "",
     },
     {
       name: "lastname",
@@ -32,6 +33,7 @@ const Modal = ({ onClose }) => {
       placeholder: "Lastname",
       label: "Enter Lastname",
       required: true,
+      value: data.lastname || "",
     },
     {
       name: "email",
@@ -39,6 +41,7 @@ const Modal = ({ onClose }) => {
       placeholder: "e.g example@demo.com",
       label: "Enter email address",
       required: true,
+      value: data.email || "",
     },
     {
       name: "department",
@@ -46,6 +49,7 @@ const Modal = ({ onClose }) => {
       placeholder: "e.g IT",
       label: "Enter your department.",
       required: true,
+      value: data.department || "",
     },
   ];
 
