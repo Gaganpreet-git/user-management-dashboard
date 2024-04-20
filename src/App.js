@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Table from "./components/Table/Table";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [usersData, setUsersData] = useState([]);
@@ -32,6 +32,10 @@ function App() {
       department: "IT department",
     },
   ];
+
+  useEffect(() => {
+    fetch();
+  }, []);
 
   const fetch = async () => {
     try {
