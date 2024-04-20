@@ -26,10 +26,10 @@ function App() {
   const rows = usersData.map((user) => {
     return {
       id: user.id,
-      firstname: user.name.split(" ")[0],
-      lastname: user.name.split(" ")[1],
-      email: user.email,
-      department: user.company.bs,
+      firstname: user.name?.split(" ")[0] || "",
+      lastname: user.name?.split(" ")[1] || " ",
+      email: user?.email,
+      department: user.company?.bs,
     };
   });
 
@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div className="App">
-      <Table headings={headings} rows={rows} />
+      <Table headings={headings} rows={rows} setUsersData={setUsersData} />
       <Button
         onClick={() => {
           setIsOpen(true);
@@ -68,7 +68,9 @@ function App() {
       >
         Add User
       </Button>
-      {isOpen && <Modal onClose={handleClose}></Modal>}
+      {isOpen && (
+        <Modal onClose={handleClose} setUsersData={setUsersData}></Modal>
+      )}
     </div>
   );
 }

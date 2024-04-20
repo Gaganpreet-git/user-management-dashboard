@@ -3,7 +3,7 @@ import "./Table.css";
 import axios from "axios";
 import Modal from "../Modal/Modal";
 
-const Table = ({ headings, rows }) => {
+const Table = ({ headings, rows, setUsersData }) => {
   const API_endpoint = " https://jsonplaceholder.typicode.com";
   const [modalOpen, setModalOpen] = useState(false);
   const [userData, setUserData] = useState({});

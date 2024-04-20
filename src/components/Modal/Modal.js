@@ -2,13 +2,17 @@ import axios from "axios";
 import Form from "../Form/Form";
 import "./Modal.css";
 
-const Modal = ({ onClose, data, closeModal }) => {
+const Modal = ({ onClose, data, closeModal, setUsersData }) => {
   const API_endpoint = " https://jsonplaceholder.typicode.com";
 
   const addUser = async (userData) => {
     console.log(userData);
     try {
       const res = await axios.post(`${API_endpoint}/users`, userData);
+      const user = res.data;
+      setUsersData((prevState) => {
+        return [...prevState, user];
+      });
       console.log(res);
       if (res.status === 201) {
         alert("User added successfully");
