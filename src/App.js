@@ -61,8 +61,14 @@ function App() {
   return (
     <div className="App">
       <Table headings={headings} rows={rows} />
-      <Button>Add User</Button>
-      <Modal></Modal>
+      <Button
+        onClick={() => {
+          setIsOpen(true);
+        }}
+      >
+        Add User
+      </Button>
+      {isOpen && <Modal onClose={handleClose}></Modal>}
     </div>
   );
 }
