@@ -18,6 +18,19 @@ const Modal = ({ onClose, data }) => {
     }
   };
 
+  const updateUser = async (userData, userId) => {
+    console.log(userId, "User updated successfully");
+    try {
+      const res = await axios.put(`${API_endpoint}/users/${userId}`, userData);
+      if (res.status === 200) {
+        alert("User updated successfully");
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error.message);
+    }
+  };
+
   const inputs = [
     {
       name: "firstname",
@@ -53,16 +66,19 @@ const Modal = ({ onClose, data }) => {
     },
   ];
 
+  const handleSubmit = (formData) => {
+    if (data) {
+      updateUser(formData, data.id);
+    } else {
+      addUser(formData);
+    }
+
+    console.log(formData);
+  };
+
   return (
     <div className="modal">
-      <Form
-        inputs={inputs}
-        onSubmit={(data) => {
-          addUser(data);
-
-          console.log(data);
-        }}
-      ></Form>
+      <Form inputs={inputs} onSubmit={handleSubmit}></Form>
       <div className="close-btn" onClick={onClose}>
         X
       </div>
