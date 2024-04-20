@@ -16,22 +16,15 @@ function App() {
     "Edit",
     "Delete",
   ];
-  const rows = [
-    {
-      id: 1,
-      firstname: "John",
-      lastname: "Doe",
-      email: "john@example.com",
-      department: "IT department",
-    },
-    {
-      id: 2,
-      firstname: "John",
-      lastname: "Doe",
-      email: "john@example.com",
-      department: "IT department",
-    },
-  ];
+  const rows = usersData.map((user) => {
+    return {
+      id: user.id,
+      firstname: user.name.split(" ")[0],
+      lastname: user.name.split(" ")[1],
+      email: user.email,
+      department: user.company.bs,
+    };
+  });
 
   useEffect(() => {
     fetch();
