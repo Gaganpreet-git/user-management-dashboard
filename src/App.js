@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Table from "./components/Table/Table";
+import axios from "axios";
 
 function App() {
   const headings = [
@@ -28,6 +29,26 @@ function App() {
       department: "IT department",
     },
   ];
+
+  const fetch = async () => {
+    try {
+      const url = "https://jsonplaceholder.typicode.com/users";
+      const res = await axios.get(url);
+
+      if (res.status === 200) {
+        // Set state data
+        console.log(res.data);
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error(
+          `Request failed with status ${error.response.status}: ${error.response.data}`
+        );
+      } else {
+        console.error("Error:", error.message);
+      }
+    }
+  };
 
   return (
     <div className="App">
