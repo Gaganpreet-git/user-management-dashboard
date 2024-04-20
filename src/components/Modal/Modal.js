@@ -2,7 +2,7 @@ import axios from "axios";
 import Form from "../Form/Form";
 import "./Modal.css";
 
-const Modal = ({ onClose, data }) => {
+const Modal = ({ onClose, data, closeModal }) => {
   const API_endpoint = " https://jsonplaceholder.typicode.com";
 
   const addUser = async (userData) => {
@@ -22,6 +22,7 @@ const Modal = ({ onClose, data }) => {
     console.log(userId, "User updated successfully");
     try {
       const res = await axios.put(`${API_endpoint}/users/${userId}`, userData);
+      closeModal();
       if (res.status === 200) {
         alert("User updated successfully");
       }

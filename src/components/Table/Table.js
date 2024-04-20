@@ -53,7 +53,14 @@ const Table = ({ headings, rows }) => {
           );
         })}
       </table>
-      {modalOpen && <Modal data={userData}></Modal>}
+      {modalOpen && (
+        <Modal
+          data={userData}
+          closeModal={() => {
+            setModalOpen(false);
+          }}
+        ></Modal>
+      )}
     </>
   );
 };
